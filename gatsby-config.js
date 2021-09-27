@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://build-6b0a5894-6f88-4414-b45e-14879ea1a52c.gtsb.io/",
+    siteUrl: "https://gatsbypythontutorial02main.gatsbyjs.io/",
     title: "My Gatsby Site",
   },
   plugins: [
