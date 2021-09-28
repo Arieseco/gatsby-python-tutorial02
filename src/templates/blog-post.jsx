@@ -6,9 +6,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const BlogPost = ({data, pageContext}) => {
   const { previous, next } = pageContext
-  console.log(previous)
-  console.log(next)
-  console.log(pageContext)
   const image = getImage(data.mdx.frontmatter.hero_image) 
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
@@ -22,6 +19,15 @@ const BlogPost = ({data, pageContext}) => {
           {data.mdx.frontmatter.hero_image_credit_text}
         </Link>
       </p>
+      {data.mdx.tableOfContents.items.map((item)=>{
+          return(
+            <li key={item.url}>
+              <a href={item.url} key={item.url} >
+                {item.title}
+              </a>
+            </li>
+          )
+        })}
       <MDXRenderer>
         {data.mdx.body}
       </MDXRenderer>
@@ -65,6 +71,7 @@ query($slug: String!) {
         }
       }
     }
+    tableOfContents
   }
 }
 `
